@@ -14,7 +14,7 @@ import { ProductsShowPage } from "./ProductsShowPage";
 const router = createBrowserRouter([
   {
     element: (
-      <div>
+      <div  className="bg-cover bg-center fixed inset-0 overflow-y-auto bg-[url('https://as1.ftcdn.net/v2/jpg/05/34/20/46/1000_F_534204669_lFyotgs5MpmtRvpXZtY9r7zuNKcbW1XB.jpg')]">
         <Header />
         <Outlet />
         <Footer />

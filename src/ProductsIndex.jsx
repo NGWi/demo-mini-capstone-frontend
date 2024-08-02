@@ -1,6 +1,6 @@
 export function ProductsIndex({ products, onShow }) {
   return (
-    <div className="bg-cover bg-center fixed inset-0 overflow-y-auto" style={{ backgroundImage: `url(https://as1.ftcdn.net/v2/jpg/05/34/20/46/1000_F_534204669_lFyotgs5MpmtRvpXZtY9r7zuNKcbW1XB.jpg)` }}>
+    <div>
       <h1 className="border-solid border-2 border-indigo-800 bg-white shadow-xl rounded-lg p-4 bg-opacity-50 text-center text-4xl font-bold mb-4">All Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((product) => (
