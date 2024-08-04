@@ -11,7 +11,7 @@ export function ProductsShow({ product, onUpdate, onDestroy }) {
       <p>Price: {product.price}</p>
       <p>{product.description}</p>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div> handle
           Name: <input defaultValue={product.name} name="name" type="text" />
         </div>
         <div>
