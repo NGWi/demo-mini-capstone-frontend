@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
+import { Test } from "./Test";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { HomePage } from "./HomePage";
@@ -11,6 +12,10 @@ import { ProductsNewPage } from "./ProductsNewPage";
 import { ProductsIndexPage } from "./ProductsIndexPage";
 import { ProductsShowPage } from "./ProductsShowPage";
 
+const testText = "Passed test.";
+const handleTestButton = () => {
+  console.log("Test passed.")
+}
 const router = createBrowserRouter([
   { element: (
       <div  className="bg-cover bg-center fixed inset-0 overflow-y-auto bg-[url('https://as1.ftcdn.net/v2/jpg/05/34/20/46/1000_F_534204669_lFyotgs5MpmtRvpXZtY9r7zuNKcbW1XB.jpg')]">
@@ -21,6 +26,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: "/", element: <HomePage /> },
+      { path: "/Test", element: <Test text={testText} onTestButton={handleTestButton} />},
       { path: "/signup", element: <SignupPage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/products/new", element: <ProductsNewPage /> },
@@ -35,7 +41,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router}/>;
 }
 
 export default App;
