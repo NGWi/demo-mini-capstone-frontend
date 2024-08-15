@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://demo-mini-capstone-xskt.onrender.com";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -31,10 +32,10 @@ const router = createBrowserRouter([
       { path: "/login", element: <LoginPage /> },
       { path: "/products/new", element: <ProductsNewPage /> },
       { path: "/products", element: <ProductsIndexPage />,
-        loader: () => axios.get("http://localhost:3000/products.json").then((response) => response.data),
+        loader: () => axios.get("/products.json").then((response) => response.data),
       },
       { path: "/products/:id", element: <ProductsShowPage />,
-        loader: ({ params }) =>  axios.get(`http://localhost:3000/products/${params.id}.json`).then((response) => response.data),
+        loader: ({ params }) =>  axios.get(`/products/${params.id}.json`).then((response) => response.data),
       },
     ],
   },
