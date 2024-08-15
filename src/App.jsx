@@ -1,5 +1,4 @@
 import axios from "axios";
-axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://demo-mini-capstone-xskt.onrender.com";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -12,6 +11,8 @@ import { LoginPage } from "./LoginPage";
 import { ProductsNewPage } from "./ProductsNewPage";
 import { ProductsIndexPage } from "./ProductsIndexPage";
 import { ProductsShowPage } from "./ProductsShowPage";
+
+axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://demo-mini-capstone-xskt.onrender.com";
 
 const testText = "Passed test.";
 const handleTestButton = () => {
