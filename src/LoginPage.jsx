@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const jwt = localStorage.getItem("jwt");
 if (jwt) {
@@ -8,6 +8,14 @@ if (jwt) {
 
 export function LoginPage() {
   const [errors, setErrors] = useState([]);
+  const [flash, setFlash] = useState(localStorage.getItem('flash'));
+
+  useEffect(() => {
+    return () => {
+      localStorage.removeItem('flash');
+      setFlash(null); // Clear the flash message
+    };
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,6 +27,8 @@ export function LoginPage() {
         console.log(response.data);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
+        localStorage.setItem('flash', 'Logged in successfully!'); // Set the flash message
+        setFlash('Logged in successfully!');
         event.target.reset();
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
@@ -31,6 +41,7 @@ export function LoginPage() {
   return (
     <div id="login">
       <h1>Login</h1>
+      {flash && <div style={{ color: 'green' }}>{flash}</div>}
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>

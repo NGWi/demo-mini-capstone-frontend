@@ -11,6 +11,7 @@ import { LoginPage } from "./LoginPage";
 import { ProductsNewPage } from "./ProductsNewPage";
 import { ProductsIndexPage } from "./ProductsIndexPage";
 import { ProductsShowPage } from "./ProductsShowPage";
+import { FlashMsg } from "./FlashMsg";
 
 axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://demo-mini-capstone-xskt.onrender.com";
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   { element: (
       <div  className="bg-cover bg-center fixed inset-0 overflow-y-auto bg-[url('https://as1.ftcdn.net/v2/jpg/05/34/20/46/1000_F_534204669_lFyotgs5MpmtRvpXZtY9r7zuNKcbW1XB.jpg')]">
         <Header />
+        <FlashMsg />
         <Outlet />
         <Footer />
       </div>
